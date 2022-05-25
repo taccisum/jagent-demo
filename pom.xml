@@ -68,6 +68,36 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <finalName>myfatagent</finalName>
+                    <!-- 打包第三方包 -->
+                    <artifactSet>
+                        <includes>
+                            <include>*:*</include>
+                        </includes>
+                    </artifactSet>
+                    <!-- 重新命名依赖的第三方包的类包名 -->
+<!--                    <relocations>-->
+<!--                        <relocation>-->
+<!--                            <pattern>javassist</pattern>-->
+<!--                            <shadedPattern>myagent.dependencies.javassist</shadedPattern>-->
+<!--                        </relocation>-->
+<!--                    </relocations>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

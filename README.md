@@ -11,3 +11,10 @@ Simple demo about javaagent usage(with javassist).
 
 不出意外的话，可以看到 `com.github.tac.jagent.demo.Main#sayhello` 的行为已经被修改了
 
+### Fat agent
+
+Fat agent 位于 `/path/to/target/myfatagent.jar`，其中已经将 agent 本身的依赖打包进去了，因此使用时无需再指定 -classpath
+
+    $ java -javaagent:$PWD/target/myfatagent.jar="myargs" \
+        -classpath $PWD/target/classes \
+        com.github.tac.jagent.demo.Main hello
