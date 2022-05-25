@@ -13,7 +13,7 @@ Simple demo about javaagent usage(with javassist).
 
 ### Fat agent
 
-Fat agent 位于 `/path/to/target/myfatagent.jar`，其中已经将 agent 本身的依赖打包进去了，因此使用时无需再指定 -classpath
+Fat agent 位于 `/path/to/target/myfatagent.jar`，其中已经将 agent 本身的依赖打包进去了，因此使用时无需再在 `-classpath` 中指定依赖包的路径
 
     $ java -javaagent:$PWD/target/myfatagent.jar="myargs" \
         -classpath $PWD/target/classes \
